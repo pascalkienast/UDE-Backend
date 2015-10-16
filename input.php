@@ -19,11 +19,11 @@ $uid = uniqid();
 
 // sql to create table
 $sql = "CREATE TABLE ".$uid." (
-id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-long VARCHAR(30) NOT NULL,
-lat VARCHAR(30) NOT NULL,
-last_update TIMESTAMP
+box_id INT AUTO_INCREMENT PRIMARY KEY, 
+	long VARCHAR(100), 
+	lat VARCHAR(100)
 )";
+echo "<br>".$sql."<br>";
 
 
 if ($conn->query($sql) === TRUE) {
