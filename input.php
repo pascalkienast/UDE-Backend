@@ -20,8 +20,8 @@ $uid = uniqid();
 // sql to create table
 $sql = "CREATE TABLE ".$uid." (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-long FLOAT(32),
-lat FLOAT(32),
+long decimal(15,20) NOT NULL,
+lat decimal(15,20) NOT NULL,
 last_update TIMESTAMP
 )";
 
