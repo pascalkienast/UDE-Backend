@@ -1,6 +1,9 @@
 <?php
 //Daten zum Connecten zur MySql DB
-include("../db.php")
+$servername = "localhost";
+$username = "kibl";
+$password = "dighlanAwpyinWieco";
+$dbname = "kibl_ude";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
