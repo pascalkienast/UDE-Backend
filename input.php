@@ -4,7 +4,7 @@ $servername = "localhost";
 $username = "kibl";
 $password = "dighlanAwpyinWieco";
 $dbname = "kibl_ude";
-
+    
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -27,7 +27,7 @@ last_update TIMESTAMP
 
 
 if ($conn->query($sql) === TRUE) {
-    echo "Table MyGuests created successfully";
+    echo "success";
 } else {
     echo "Error creating table: " . $conn->error;
 }
