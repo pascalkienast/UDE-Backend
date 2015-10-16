@@ -1,22 +1,33 @@
 <?php
-// Connect to uberspace Database
-$db = new mysqli('localhost', 'kibl', 'dighlanAwpyinWieco', 'kibl_ude');
+//Daten zum Connecten zur MySql DB
+include("../db.php")
 
-if($db->connect_errno > 0){
-    die('Unable to connect to database [' . $db->connect_error . ']');
-}
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
 
 // create unique id like 4b3403665fea6 
 $uid = uniqid();
 
-//table
-$sql = "CREATE TABLE ".$uid."
-(
-ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+// sql to create table
+$sql = "CREATE TABLE ".$uid." (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 long FLOAT(32),
-lat FLOAT(32)
+lat FLOAT(32),
+last_update TIMESTAMP
 )";
 
-$db->query($sql);
 
+if ($conn->query($sql) === TRUE) {
+    echo "Table MyGuests created successfully";
+} else {
+    echo "Error creating table: " . $conn->error;
+}
+
+$conn->close();
 ?>
